@@ -7,7 +7,45 @@
     <title>Shipping Address</title>
 </head>
 <body>
-    <h1>Temporary page</h1>
+    <h1>Shipping Address</h1>
+    <form method="POST" action="/quotation" data-th-object="${delivery}">
+        <table >
+            <tr>
+                <td>Name: </td>
+                <td>
+                    <input type="text" data-th-field="*{name}">
+                </td>
+
+                <!-- Display error message -->
+                <td data-th-if="${#fields.hasErrors('name')}">
+                    <span data-th-errors="*{name}" data-th-errorclass="error"></span>
+                </td>
+            </tr>
+    
+            <tr>
+                <td>Address: </td>
+                <td>
+                    <input type="text" data-th-field="*{address}">
+                </td>
+
+                <!-- Display error message -->
+                <td data-th-if="${#fields.hasErrors('address')}">
+                    <span data-th-errors="*{address}" data-th-errorclass="error"></span>
+                </td>                
+            </tr>
+    
+            <tr>
+                <td>
+                    <!-- back button -->
+                    <button type="submit" formmethod="GET" formaction="/">Back</button>
+                </td>
+                <td>
+                    <!-- checkout button -->
+                    <button type="submit">Checkout</button>
+                </td>
+            </tr>
+        </table>
+    </form>
     
 </body>
 </html>

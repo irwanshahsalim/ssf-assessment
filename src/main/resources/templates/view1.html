@@ -12,7 +12,7 @@
 
 		<h1>Shopping Cart</h1>
 		<!-- add form -->
-		<form method="POST" action="/" data-th-object="${item}">
+		<form method="GET" action="/shippingaddress" data-th-object="${item}">
 			<table>
 				<tr>
 					<td>Item:</td>
@@ -72,11 +72,10 @@
 			<div data-th-if="${#lists.isEmpty(cart.contents)}">
 				<p>Your cart is currently empty</p>
 			</div>
-
 	
 			<div>
-				<button type="submit">Add</button>
-				<button type="submit" formmethod="get" formaction="/shippingaddress">Next</button>
+				<button type="submit" formmethod="POST" formaction="/">Add</button>
+				<button type="submit">Next</button>
 			</div>
 		</form>
 
