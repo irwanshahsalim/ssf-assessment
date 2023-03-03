@@ -1,4 +1,4 @@
-package ibfbatch2ssf.ssfassessment.model;
+package ibf.ssfassessment.model;
 
 import java.util.LinkedList;
 import java.util.List;

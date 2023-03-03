@@ -1,4 +1,4 @@
-package ibfbatch2ssf.ssfassessment.model;
+package ibf.ssfassessment.model;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;

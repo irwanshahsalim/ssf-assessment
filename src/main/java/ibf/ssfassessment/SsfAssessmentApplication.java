@@ -1,4 +1,4 @@
-package ibfbatch2ssf.ssfassessment;
+package ibf.ssfassessment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

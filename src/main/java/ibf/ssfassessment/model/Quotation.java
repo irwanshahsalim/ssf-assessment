@@ -1,4 +1,4 @@
-// TODO: Add your package here
+package ibf.ssfassessment.model;
 
 // DO NOT MODIFY THIS FILE
 

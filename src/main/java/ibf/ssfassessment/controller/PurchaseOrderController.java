@@ -1,4 +1,4 @@
-package ibfbatch2ssf.ssfassessment.controller;
+package ibf.ssfassessment.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,25 +7,22 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import ibfbatch2ssf.ssfassessment.model.Cart;
-import ibfbatch2ssf.ssfassessment.model.Delivery;
-import ibfbatch2ssf.ssfassessment.model.Item;
-import ibfbatch2ssf.ssfassessment.service.PurchaseService;
+import ibf.ssfassessment.model.Cart;
+import ibf.ssfassessment.model.Delivery;
+import ibf.ssfassessment.model.Item;
+import ibf.ssfassessment.service.PurchaseService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller
 public class PurchaseOrderController {
 
-    // autowire service
     @Autowired
     private PurchaseService purchaseSvc;
 
-    // landing page = view1
     @GetMapping(path={"/", "view1.html"})
     public String getLanding(Model model, HttpSession session) {
 
-        // check if cart has item using session
         Cart cart = (Cart) session.getAttribute("cart"); 
         if (null == cart) {
             cart = new Cart(); 
@@ -37,20 +34,18 @@ public class PurchaseOrderController {
         return "view1"; 
     }
 
-    // post add button 
     @PostMapping("/")
     public String postAdd(@Valid Item item, BindingResult result, Model model, HttpSession session) {
 
         Cart cart = (Cart) session.getAttribute("cart"); 
 
-        // perform error check
         if (result.hasErrors()) {
-            // reset page 
+
             model.addAttribute("item", item);
             model.addAttribute("cart", cart); 
             return "view1"; 
         }
-        // perform aggregation 
+        // Aggregation 
         cart = purchaseSvc.aggregate(cart, item); 
         session.setAttribute("cart", cart);
         session.setAttribute("item", item);
@@ -100,8 +95,8 @@ public class PurchaseOrderController {
             return "view2"; 
         }
 
-        // if no error, continue 
-
+        // if no error, submit to POApp 
+        
 
         // make HTTP call to get quotation (svc)
 

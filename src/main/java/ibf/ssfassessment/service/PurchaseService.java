@@ -1,6 +1,6 @@
-package ibfbatch2ssf.ssfassessment.service;
+package ibf.ssfassessment.service;
 
-import ibfbatch2ssf.ssfassessment.model.*;
+import ibf.ssfassessment.model.*;
 
 import org.springframework.stereotype.Service;
 
